@@ -43,6 +43,26 @@
     
     int newWidth = 0;
     int newHeight = 0;
+
+    float ratioBitmap = oldWidth / oldHeight;
+
+     if (ratioBitmap > 1) {    
+         // LANDSCAPE
+         newHeight = maxWidth;
+         newWidth = (int) ( oldWidth * ( maxWidth / oldHeight));
+     } else {
+         // PORTRAIT
+         newWidth = maxWidth;
+         newHeight = (int) ( oldHeight * ( maxWidth / oldWidth));
+     }
+
+     // if (maxWidth < maxHeight) {
+     //     newWidth = maxWidth;
+     //     newHeight = (oldHeight / oldWidth) * newWidth;
+     // } else {
+     //     newHeight = maxHeight;
+     //     newWidth = (oldWidth / oldHeight) * newHeight;
+     // }
     
     if (maxWidth < maxHeight) {
         newWidth = maxWidth;
